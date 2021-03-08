@@ -1,8 +1,5 @@
 #include <sevenSegmentDisplay.h>
 #include <Keypad.h>
-#include <LiquidCrystal.h>
-
-LiquidCrystal lcd(5, 6, 14, 13, 12, 11);
 char keys[4][3] = {
   {'1','2','3'},
   {'4','5','6'},
