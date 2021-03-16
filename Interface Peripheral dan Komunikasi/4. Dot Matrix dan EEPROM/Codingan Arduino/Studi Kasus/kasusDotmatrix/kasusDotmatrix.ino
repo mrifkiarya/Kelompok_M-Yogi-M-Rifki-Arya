@@ -11,14 +11,24 @@
 {0, 0, 0, 0, 0} \
 } 
  
-#define H { \
+#define M { \
 {1, 0, 0, 0, 1}, \
+{1, 1, 0, 1, 1}, \
+{1, 0, 1, 0, 1}, \
 {1, 0, 0, 0, 1}, \
-{1, 0, 0, 0, 1}, \
-{1, 1, 1, 1, 1}, \
 {1, 0, 0, 0, 1}, \
 {1, 0, 0, 0, 1}, \
 {1, 0, 0, 0, 1} \
+}
+
+#define Y { \
+{1, 0, 0, 0, 1}, \
+{0, 1, 0, 1, 0}, \
+{0, 0, 1, 0, 0}, \
+{0, 0, 1, 0, 0}, \
+{0, 0, 1, 0, 0}, \
+{0, 0, 1, 0, 0}, \
+{0, 0, 1, 0, 0} \
 } 
  
  
@@ -32,9 +42,9 @@ int cols[5] = {pins[1], pins[2], pins[3], pins[4], pins[5]};
 int rows[7] = {pins[6], pins[7], pins[8], pins[9], 
 pins[10], pins[11], pins[12]}; 
  
-const int numPatterns = 2; 
+const int numPatterns = 12; 
 byte patterns[numPatterns][7][5] = { 
-SPACE, H
+SPACE, M, Y
 }; 
  
 int pattern = 0; 
@@ -78,11 +88,10 @@ void loop() {
       Serial.println("DATA TERSIMPAN");
     }
     else if(tekan==2){
-      
+      delay(500);
 pattern = ++pattern % numPatterns; 
 slidePattern(pattern, 100); 
     }
-   delay(500);
 } void clearLeds() { 
 for (int i = 0; i < 5; i++) { 
 for (int j = 0; j < 7; j++) { 
