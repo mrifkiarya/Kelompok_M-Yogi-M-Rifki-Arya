@@ -1,0 +1,69 @@
+[System]
+Name='matlab simulasi'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=25
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='kecepatan'
+Range=[15 35]
+NumMFs=5
+MF1='SangatLambat':'trimf',[15 15 20]
+MF2='Lambat':'trimf',[15 20 25]
+MF3='Sedang':'trimf',[20 25 30]
+MF4='Cepat':'trimf',[25 30 35]
+MF5='SangatCepat':'trimf',[30 35 35]
+
+[Input2]
+Name='jarak'
+Range=[0 40]
+NumMFs=5
+MF1='SangatDekat':'trimf',[0 0 10]
+MF2='Dekat':'trimf',[0 10 20]
+MF3='Sedang':'trimf',[10 20 30]
+MF4='Jauh':'trimf',[20 30 40]
+MF5='SangatJauh':'trimf',[30 40 40]
+
+[Output1]
+Name='tingkatpengereman'
+Range=[0 100]
+NumMFs=5
+MF1='SangatLemah':'constant',[20]
+MF2='Lemah':'constant',[40]
+MF3='Sedang':'constant',[60]
+MF4='Kuat':'constant',[80]
+MF5='SangatKuat':'constant',[100]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 2 (1) : 1
+1 4, 2 (1) : 1
+1 5, 3 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 2 (1) : 1
+2 4, 3 (1) : 1
+2 5, 3 (1) : 1
+3 1, 2 (1) : 1
+3 2, 2 (1) : 1
+3 3, 3 (1) : 1
+3 4, 4 (1) : 1
+3 5, 4 (1) : 1
+4 1, 1 (1) : 1
+4 2, 3 (1) : 1
+4 3, 4 (1) : 1
+4 4, 4 (1) : 1
+4 5, 5 (1) : 1
+5 1, 3 (1) : 1
+5 2, 4 (1) : 1
+5 3, 4 (1) : 1
+5 4, 5 (1) : 1
+5 5, 5 (1) : 1
